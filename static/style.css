@@ -1,0 +1,68 @@
+body{
+    margin: 0px;
+    padding:0px;
+    background-color: #0f1014;
+    color:white;
+}
+
+.navbar{
+    height:74px;
+    display:flex;
+    align-items: center;
+    gap:10px;
+    padding:10px;
+}
+
+#logo{
+    height:50px;
+    width:40px;
+    margin-left:65px;
+}
+
+.name{
+    margin-left:5px;
+    font-size:25px;
+    color: #e50914;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.search input{
+    width:650px; 
+    height:40px;
+    margin-left:80px;
+    margin-top:10px;
+    opacity:0.8;
+    background-color: transparent;
+    border-radius:15px;
+    border-color: white;
+    color:rgb(255, 255, 255);
+    font-size: 18px;
+}
+.search button {
+    margin-left:5px;
+    padding: 10px 16px;
+    font-size: 16px;
+    background-color: #e50914; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  
+}
+
+.headlines{
+    font-family:'Bebas Neue', sans-serif;
+    text-align:center;
+    margin-top:50px;
+    
+}
+
+.top50movies{
+    padding:55px;
+    font-family:'Bebas Neue', sans-serif;
+    margin-left: 25px;
+}
