@@ -11,10 +11,14 @@ app = Flask(__name__)
 
 
 def index():
-    return render_template('index.html', movie_name = list(top_movies['movie_title'].values) , poster = list(top_movies['poster_url'].values))
+    movie_names = list(top_movies['movie_title'].values)
+    posters = list(top_movies['poster_url'].values)
+    movies = list(zip(movie_names, posters))  
+    return render_template('index.html', movies=movies)
 
 if __name__ == '__main__':
     app.run(debug = True)
+
 
 
 

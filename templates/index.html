@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
 </head>
 <body>
   <div class="navbar">
-    <a href= index.html>
+    <a href="{{ url_for('index') }}"/a>
         <div class="logo"> 
-            <img id='logo' src="image.jpg"/>
+            <img id="logo" src="{{ url_for('static', filename='image.jpg') }}" />
         </div>
     </a>
-    <a href= index.html>  
+    <a href="{{ url_for('index') }}"/a>
         <div class="name">
             <h1>movie.rec</h1>
         </div>
@@ -36,9 +35,14 @@
     <h2><b><u>trending movies:</u></b></h2>
   </div>
  
-  {%for i in range(movie_name|length)%}
-   <h2><b>{{movie_name[i]}}.</b></h2>
-  {%endfor%}
+  <div class="movie-grid">
+    {% for name, img in movies %}
+        <div class="movie-card">
+            <img src="{{ img }}" alt="Poster">
+            <h3>{{ name }}</h3>
+        </div>
+    {% endfor %}
+  </div>
 
 
 
