@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+</head>
+<body>
+  <div class="navbar">
+    <a href="{{ url_for('index') }}"/a>
+        <div class="logo"> 
+            <img id="logo" src="{{ url_for('static', filename='image.jpg') }}" />
+        </div>
+    </a>
+    <a href="{{ url_for('index') }}"/a>
+        <div class="name">
+            <h1>movie.rec</h1>
+        </div>
+    </a>  
+      <form action="/recommend" method="POST">
+        <input type="text" name="name" placeholder="Enter movie name" required>
+        <button type="submit">Recommend</button>
+      </form>
+  </div>
+
+  <div class="headlines">
+    <h2><b>search movies.</b></h2>
+    <h2><b>get recommendations, reviews, ratings, and more.</b></h2>
+  </div>
+
+
+  <div class="top50movies">
+  </br>
+    <h2><b><u>recommendations:</u></b></h2>
+  </div>
+  
+  {%if data%}
+    {%for i in data%}
+        <div class="movie-grid">
+                <div class="movie-card">
+                    <img src="{{ i.poster }}" alt="Poster">
+                    <h3>{{ i.movie_title }}</h3>
+                </div>
+        </div>
+  {%endfor%}
+  {%endif%}
+
+
+
+
+
+
+</body>
+</html>
