@@ -33,17 +33,19 @@
 
   <div class="top50movies">
   </br>
-    <h2><b><u>trending movies:</u></b></h2>
+    <h2><b><u>recommendations:</u></b></h2>
   </div>
- 
-  <div class="movie-grid">
-    {% for name, img in movies %}
-        <div class="movie-card">
-            <img src="{{ img }}" alt="Poster">
-            <h3>{{ name }}</h3>
+  
+  {%if data%}
+    {%for i in data%}
+        <div class="movie-grid">
+                <div class="movie-card">
+                    <img src="{{ i.poster }}" alt="Poster">
+                    <h3>{{ i.movie_title }}</h3>
+                </div>
         </div>
-    {% endfor %}
-  </div>
+  {%endfor%}
+  {%endif%}
 
 
 
