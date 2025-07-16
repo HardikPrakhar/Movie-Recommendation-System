@@ -20,8 +20,8 @@
         </div>
     </a>  
       <form action="/recommend" method="POST">
-        <input type="text" name="name" placeholder="Enter movie name" required>
-        <button type="submit">Recommend</button>
+        <input type="text" id='search_bar' name="name" placeholder="Enter movie name" required>
+        <button type="submit" id='search_button'>Recommend</button>
       </form>
   </div>
 
@@ -33,22 +33,27 @@
 
   <div class="top50movies">
   </br>
-    <h2><b><u>trending movies:</u></b></h2>
+    <h2><b><u>Top movies:</u></b></h2>
   </div>
  
   <div class="movie-grid">
     {% for name, img in movies %}
-        <div class="movie-card">
-            <img src="{{ img }}" alt="Poster">
-            <h3>{{ name }}</h3>
-        </div>
+        <form action="/recommend" method="POST" class="movie-click-form">
+            <input type="hidden" name="name" value="{{ name }}">
+            <button type="submit" class="movie-card">
+                <img src="{{ img }}" alt="Poster">
+                <h3>{{ name }}</h3>
+            </button>
+        </form>
     {% endfor %}
   </div>
 
-
-
-
-
+  <footer>
+    <br>
+    <br>
+    <br>
+    <br>
+  </footer>
 
 </body>
 </html>

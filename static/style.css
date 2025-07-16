@@ -13,6 +13,30 @@ body{
     padding:10px;
 }
 
+#search_bar{
+    margin-left:90px;
+    width:640px;
+    height:40px;
+    opacity:0.8;
+    background-color: transparent;
+    border-radius:15px;
+    border-color: white;
+    color:rgb(255, 255, 255);
+    font-size: 19px;
+}
+
+#search_button{
+    margin:10px;
+    width:120px;
+    height:35px;
+    font-size: 16px;
+    background-color: #e50914; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
 #logo{
     height:50px;
     width:40px;
@@ -40,30 +64,6 @@ a{
     text-decoration: none;
 }
 
-.search input{
-    width:650px; 
-    height:40px;
-    margin-left:80px;
-    margin-top:10px;
-    opacity:0.8;
-    background-color: transparent;
-    border-radius:15px;
-    border-color: white;
-    color:rgb(255, 255, 255);
-    font-size: 18px;
-}
-.search button {
-    margin-left:5px;
-    padding: 10px 16px;
-    font-size: 16px;
-    background-color: #e50914; 
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  
-}
-
 .headlines{
     font-family:'Bebas Neue', sans-serif;
     text-align:center;
@@ -72,11 +72,10 @@ a{
 }
 
 .top50movies{
-    padding:55px;
+    padding:2px;
     font-family:'Bebas Neue', sans-serif;
     margin-left: 70px;
     font-size:20px;
-    padding:4px;
 
 }
 
@@ -86,19 +85,28 @@ a{
     gap: 30px;
     padding: 30px;
     justify-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:#ffffff
+}
+
+.movie-click-form button {
+  all: unset;
+  display: block;
+  width: 100%;
+  cursor: pointer;
 }
 
 .movie-card {
-    text-align: center;
-    background-color: #1c1c1c;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-    transition: transform 0.2s ease-in-out;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #111; /* or your preferred background */
 }
 
 .movie-card:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .movie-card img {
@@ -112,4 +120,132 @@ a{
     margin-top: 10px;
     font-size: 16px;
     color: #ffffff;
+}
+
+.rec-grid{
+    display:grid;
+    gap: 50px;
+    padding: 20px;
+    justify-items: center;
+    grid-template-columns: repeat(5, 2fr);
+    margin-left: 80px;
+    margin-right:80px;
+    transition: transform 0.2s ease-in;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:#ffffff
+
+}
+
+.poster_main{
+    display:inline-block;
+    margin-left:100px;
+    transition: transform 0.2s ease-in-out;
+    background-color: #1c1c1c;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.main_movie{
+    display:flex;
+    margin-top: 30px;
+}
+
+.poster_main:hover{
+    transform:scale(1.05);
+}
+
+.overview_main{
+    display:inline-block;
+}
+
+.title_main{
+    margin-left:20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+}
+
+.title{
+    margin-left:20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    color: #e50914;
+}
+
+.description{
+    margin-left:20px;
+    margin-right:100px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+    text-align:left;
+}
+
+.movie-card-rec {
+  position: relative;
+  width: 180px;
+  text-align: center;
+  cursor: pointer;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color:#ffffff;
+}
+
+.movie-card-rec img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.title_rec {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #333;
+  color:#ffffff;
+}
+
+.hover-overlay-box {
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  width: 500px;
+  max-width: 90vw;
+  background: rgba(20, 20, 20, 0.95);
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 10px;
+  padding: 15px;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.movie-card-rec:hover .hover-overlay-box {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fullscreen-poster {
+  width: 120px;
+  height: auto;
+  border-radius: 6px;
+}
+
+.fullscreen-overview {
+
+  max-width: 340px;
+ 
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.movie-click-form button {
+  all: unset;
+  cursor: pointer;
+  display: block;
+  text-align: center;
 }
