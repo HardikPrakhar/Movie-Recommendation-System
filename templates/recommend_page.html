@@ -20,32 +20,86 @@
         </div>
     </a>  
       <form action="/recommend" method="POST">
-        <input type="text" name="name" placeholder="Enter movie name" required>
-        <button type="submit">Recommend</button>
+        <input type="text" id='search_bar' name="name" placeholder="Enter movie name" required>
+        <button type="submit" id='search_button'>Recommend</button>
       </form>
   </div>
 
-  <div class="headlines">
+  <!--<div class="headlines">
     <h2><b>search movies.</b></h2>
     <h2><b>get recommendations, reviews, ratings, and more.</b></h2>
-  </div>
+  </div>-->
 
 
-  <div class="top50movies">
-  </br>
-    <h2><b><u>recommendations:</u></b></h2>
-  </div>
   
-  {%if data%}
-    {%for i in data%}
-        <div class="movie-grid">
-                <div class="movie-card">
+  
+  {% if data %}
+    {% for i in data %}
+        {% if loop.first %}
+            <!-- main movie -->
+            <div class="main_movie">
+                <div class="poster_main">
                     <img src="{{ i.poster }}" alt="Poster">
-                    <h3>{{ i.movie_title }}</h3>
                 </div>
-        </div>
-  {%endfor%}
-  {%endif%}
+                <div class="overview_main">
+                    <h2 class='title_main'><b>{{ i.movie_title }}</b></h2>
+                    <h2 class='title'><u><b>Overview:</b></u></h2>
+                    <p class='description'>{{ i.overview }}</p>
+                    <h2 class='title'><u><b>Starring:</b></u></h2>
+                    <p class='description'>{{ i.actors }}</p>
+                    <h2 class='title'><b><u>Directed by:</u></b></h2>
+                    <p class='description'>{{ i.director }}</p>
+                </div>
+            </div>
+
+            <!-- heading1 -->
+            <div class="top50movies">
+                <br>
+                <h2><b><u>Recommendations:</u></b></h2>
+            </div>
+
+            <div class="rec-grid">
+        {% else %}
+            <!-- recommended movie card wrapped in a form -->
+            <form action="/recommend" method="POST" class="movie-click-form">
+                <input type="hidden" name="name" value="{{ i.movie_title }}">
+                <button type="submit" class="movie-card-rec">
+                    <img src="{{ i.poster }}" alt="Poster">
+                    <h2 class="title_rec">{{ i.movie_title }}</h2>
+
+                    <div class="hover-overlay-box">
+                        <div class="content-wrapper">
+                            <img class="fullscreen-poster" src="{{ i.poster }}" alt="Poster">
+                            <div class="fullscreen-overview">
+                                <h3>{{ i.movie_title }}</h3>
+                                <p>{{ i.overview }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </button>
+            </form>
+
+            {% if (loop.index - 1) == 5 %}
+                </div>
+                <!-- heading2 -->
+                <div class="top50movies">
+                    <br>
+                    <h2><b><u>You may also like:</u></b></h2>
+                </div>
+                <div class="rec-grid">
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+    </div>
+{% endif %}
+
+    <footer>
+      <br>
+      <br>
+      <br>
+      <br>
+    </footer>
+
 
 
 
