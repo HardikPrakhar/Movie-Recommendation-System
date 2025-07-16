@@ -90,6 +90,8 @@ def recommend():
         director = clone[clone['movie_title'] == i]['directors'].iloc[0]
         actors = clone[clone['movie_title'] == i]['actors'].iloc[0]
         poster = get_omdb_poster(movie_title)
+        if poster is None:
+            poster = "/static/no-poster-available.jpg"
         movdf.append({'movie_title':movie_title , 'overview' : overview , 'director' : director , 'actors' : actors , 'poster': poster})
     return render_template('recommend_page.html' , data = movdf)
 
